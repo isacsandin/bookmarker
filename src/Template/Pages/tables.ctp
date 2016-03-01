@@ -1,28 +1,9 @@
-<!-- Page Heading -->
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">
-            Tables
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-table"></i> Tables
-            </li>
-        </ol>
-    </div>
-</div>
-<!-- /.row -->
-
-<div class="row">
-    <div class="col-lg-12">
-        <?= $this->Flash->render() ?>
-    </div>
-</div>
-<!-- /.row -->
-
+<?php
+$this->Html->addCrumb('Pages', '/pages');
+$this->Html->addCrumb('Tables', ['controller' => 'Pages', 'action' => 'display', 'tables']);
+$this->assign('title', 'Tables');
+$this->assign('subtitle', '');
+?>
 <div class="row">
     <div class="col-lg-6">
         <h2>Bordered Table</h2>

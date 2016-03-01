@@ -216,62 +216,33 @@ $action = strtolower($this->request->action);
                 </li>
 
                 <li <?= $controller == "users"?"class='active'":"" ?> >
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo2">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#users">
                         Users <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo2" class="collapse">
+                    <ul id="users" class="collapse">
                         <li <?= isset($page) && $page == "dashboard"?"class='active'":"" ?> >
                             <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-dashboard\"></i> Dashboard",
-                                ['controller' => 'pages','action' => 'dashboard'],
+                                __("List Users"),
+                                ['controller' => 'users','action' => 'index'],
                                 ['escape' => false]
                             );?>
                         </li>
                         <li <?= isset($page) && $page == "charts"?"class='active'":"" ?> >
                             <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-bar-chart-o\"></i> Charts",
-                                ['controller' => 'pages','action' => 'charts'],
-                                ['escape' => false]
-                            );?>
-                        </li>
-                        <li <?= isset($page) && $page == "tables"?"class='active'":"" ?> >
-                            <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-table\"></i> Tables",
-                                ['controller' => 'pages','action' => 'tables'],
-                                ['escape' => false]
-                            );?>
-                        </li>
-                        <li <?= isset($page) && $page == "forms"?"class='active'":"" ?> >
-                            <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-edit\"></i> Forms",
-                                ['controller' => 'pages','action' => 'forms'],
-                                ['escape' => false]
-                            );?>
-                        </li>
-                        <li <?= isset($page) && $page == "elements"?"class='active'":"" ?> >
-                            <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-desktop\"></i> Bootstrap Elements",
-                                ['controller' => 'pages','action' => 'elements'],
-                                ['escape' => false]
-                            );?>
-                        </li>
-                        <li <?= isset($page) && $page == "grid"?"class='active'":"" ?> >
-                            <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-wrench\"></i> Bootstrap Grid",
-                                ['controller' => 'pages','action' => 'grid'],
-                                ['escape' => false]
-                            );?>
-                        </li>
-                        <li <?= isset($page) && $page == "blank"?"class='active'":"" ?> >
-                            <?=$this->Html->link(
-                                "<i class=\"fa fa-fw fa-file\"></i> Blank Page",
-                                ['controller' => 'pages','action' => 'blank'],
+                                __("Add User"),
+                                ['controller' => 'users','action' => 'add'],
                                 ['escape' => false]
                             );?>
                         </li>
                     </ul>
                 </li>
 
-
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#relacionados">
+                        Relacionados <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="relacionados" class="collapse">
+                            <?=$this->fetch('tb_actions')?>
+                        </ul>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -280,6 +251,24 @@ $action = strtolower($this->request->action);
     <div id="page-wrapper">
 
         <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <?=$this->fetch('title') ?>
+                        <small><?=$this->fetch('subtitle') ?></small>
+                    </h1>
+                    <?= $this->Html->getCrumbList([ 'firstClass' => false, 'lastClass' => 'active', 'class' => 'breadcrumb' ], 'Home'); ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <?= $this->Flash->render() ?>
+                </div>
+            </div>
+            <!-- /.row -->
 
             <?= $this->fetch('content') ?>
 

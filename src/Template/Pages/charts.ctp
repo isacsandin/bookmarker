@@ -1,28 +1,11 @@
-<!-- Page Heading -->
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">
-            Charts
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-bar-chart-o"></i> Charts
-            </li>
-        </ol>
-    </div>
-</div>
-<!-- /.row -->
+<?php
+$this->Html->addCrumb('Pages', '/pages');
+$this->Html->addCrumb('Charts', ['controller' => 'Pages', 'action' => 'display', 'charts']);
 
-<div class="row">
-    <div class="col-lg-12">
-        <?= $this->Flash->render() ?>
-    </div>
-</div>
-<!-- /.row -->
+$this->assign('title', 'Charts');
+$this->assign('subtitle', '');
 
+?>
 <!-- Flot Charts -->
 <div class="row">
     <div class="col-lg-12">

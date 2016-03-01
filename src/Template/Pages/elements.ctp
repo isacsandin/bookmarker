@@ -1,27 +1,9 @@
-<!-- Page Heading -->
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">
-            Bootstrap Elements
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-desktop"></i> Bootstrap Elements
-            </li>
-        </ol>
-    </div>
-</div>
-<!-- /.row -->
-
-<div class="row">
-    <div class="col-lg-12">
-        <?= $this->Flash->render() ?>
-    </div>
-</div>
-<!-- /.row -->
+<?php
+$this->Html->addCrumb('Pages', '/pages');
+$this->Html->addCrumb('Elements', ['controller' => 'Pages', 'action' => 'display', 'elements']);
+$this->assign('title', 'Bootstrap Elements');
+$this->assign('subtitle', '');
+?>
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <h1>Hello, world!</h1>

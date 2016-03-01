@@ -1,25 +1,8 @@
-<!-- Page Heading -->
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">
-            Blank Page
-            <small>Subheading</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-file"></i> Blank Page
-            </li>
-        </ol>
-    </div>
-</div>
+<?php
+$this->Html->addCrumb('Pages', '/pages');
+$this->Html->addCrumb('Blank', ['controller' => 'Pages', 'action' => 'display', 'blank']);
 
-<div class="row">
-    <div class="col-lg-12">
-        <?= $this->Flash->render() ?>
-    </div>
-</div>
-<!-- /.row -->
+$this->assign('title', 'Blank');
+$this->assign('subtitle', 'just a blank page :)');
+?>
 
